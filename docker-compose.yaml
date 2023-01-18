@@ -1,0 +1,44 @@
+version: '3.7'
+services:
+  nginx:
+    container_name: nginx
+    image: qateam4/nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+    - type: bind
+      source: ./nginx/nginx.conf
+      target: /etc/nginx/nginx.conf
+  frontend:
+    container_name: petclinic-angular
+    image: qateam4/petclinicangular:latest
+    deploy:
+      replicas: 2
+    ports:
+      - "8080:8080"
+    networks:
+      - pc-network
+    depends_on:
+      - "backend"
+  backend:
+    container_name: petclinic-rest
+    image: qateam4/petclinicrest:latest
+    ports:
+      - "9966:9966"
+    networks:
+      - pc-network
+    volumes:
+      - db-volume
+  database:
+    container_name: petclinic-db
+    image: qateam4/petclinicdb:latest
+    ports:
+      - "3306:3306"
+
+
+volumes:
+  db-volume:
+  nginx:
+
+networks:
+  pc-network:
