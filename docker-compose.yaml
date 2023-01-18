@@ -2,7 +2,7 @@ version: '3.7'
 services:
   nginx:
     container_name: nginx
-    image: qateam4/nginx:latest
+    image: nokdev/nginx:latest
     ports:
       - "80:80"
     volumes:
@@ -11,7 +11,7 @@ services:
       target: /etc/nginx/nginx.conf
   frontend:
     container_name: petclinic-angular
-    image: qateam4/petclinicangular:latest
+    image: nokdev/petclinicangular:latest
     deploy:
       replicas: 2
     ports:
@@ -22,7 +22,7 @@ services:
       - "backend"
   backend:
     container_name: petclinic-rest
-    image: qateam4/petclinicrest:latest
+    image: nokdev/petclinicrest:latest
     ports:
       - "9966:9966"
     networks:
@@ -31,7 +31,7 @@ services:
       - db-volume
   database:
     container_name: petclinic-db
-    image: qateam4/petclinicdb:latest
+    image: nokdev/petclinicdb:latest
     ports:
       - "3306:3306"
 
