@@ -1,0 +1,7 @@
+version: "3.7"
+services:
+  front-end:
+    image: nokdev/petclinicangular:latest
+    build: 
+      context: ./spring-petclinic-angular/.
+      dockerfile: Dockerfile

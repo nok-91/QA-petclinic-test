@@ -1,0 +1,7 @@
+version: "3.7"
+services: 
+  nginx:
+    image: nokdev/nginx
+    build:
+      context: ./spring-petclinic-nginx/.
+      dockerfile: Dockerfile

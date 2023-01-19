@@ -1,0 +1,7 @@
+version: "3.7"
+services:  
+  back-end:
+    image: nokdev/petclinicrest:latest
+    build:
+      context: ./spring-petclinic-rest/.
+      dockerfile: Dockerfile

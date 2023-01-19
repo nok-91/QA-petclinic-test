@@ -1,0 +1,5 @@
+version: "3.7"
+services:
+  mysql:
+    image: nokdev/petclinicdb:latest
+    build: ./spring-petclinic-db/.

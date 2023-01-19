@@ -1,0 +1,9 @@
+version: '3.7'
+services:
+  backend:
+    container_name: petclinic-rest
+    image: nokdev/petclinicrest:latest
+    ports:
+      - "9966:9966"
+    networks:
+      - pc-network
