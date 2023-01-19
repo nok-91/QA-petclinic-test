@@ -8,6 +8,8 @@ sudo usermod -aG docker $(whoami)
 # newgrp docker may be needed
 
 #compose
+sudo apt update
+sudo apt install -y curl jq
 version=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | jq -r '.tag_name')
 sudo curl -L "https://github.com/docker/compose/releases/download/${version}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
@@ -42,4 +44,5 @@ npm install --save-dev @angular/cli@latest
 npm install --legacy-peer-deps @angular/cli@version
 npm install 
 
-
+#nginx
+sudo apt install nginx
